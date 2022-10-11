@@ -5,18 +5,8 @@
 #ifndef CPP_TOOLKITS_LOG_H
 #define CPP_TOOLKITS_LOG_H
 
-#include <iostream>
-#include <utility>
+#include "native_log.hpp"
+#include "spdlog.hpp"
 
-namespace toolkits {
-namespace log {
 
-template <typename... T>
-void print(T &&... args) {
-  (std::cout << ... << std::forward<T>(args));
-}
-
-}  // namespace log
-}  // namespace toolkits
-
-#endif  // CPP_TOOLKITS_LOG_H
+#endif// CPP_TOOLKITS_LOG_H
