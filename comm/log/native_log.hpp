@@ -9,9 +9,9 @@
 
 namespace toolkits::log {
 
-    template<typename... T>
-    void print(T &&...args) {
-        (std::cout << ... << std::forward<T>(args));
-    }
+template <typename... T>
+void print(T &&... args) {
+  (std::cout << ... << std::forward<T>(args));
+}
 
-}// namespace toolkits::log
+}  // namespace toolkits::log

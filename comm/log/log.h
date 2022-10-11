@@ -8,5 +8,4 @@
 #include "native_log.hpp"
 #include "spdlog.hpp"
 
-
-#endif// CPP_TOOLKITS_LOG_H
+#endif  // CPP_TOOLKITS_LOG_H

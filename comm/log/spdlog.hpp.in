@@ -49,19 +49,15 @@ namespace ud::tools::log {
     struct Color {
         // YELLO FOR WARNING LEVEL
         static inline constexpr std::string_view yellow = "\x1B[38;5;226m";
-        // static inline constexpr std::string_view yellow = "\033[0;33m";
 
         // RED FOR ERROR LEVEL
         static inline constexpr std::string_view red = "\x1B[38;5;196m";
-        // static inline constexpr std::string_view red = "\033[0;31m";
 
         // GREEN FOR INFO LEVEL
         static inline constexpr std::string_view green = "\x1B[38;5;118m";
-        // static inline constexpr std::string_view green = "\033[0;32m";
 
         // WHITE FOR DEBUG LEVEL
         static inline constexpr std::string_view white = "\x1B[38;5;231m";
-        // static inline constexpr std::string_view white = "\033[0;37m";
 
         // RESET
         static inline constexpr std::string_view reset = "\033[0m";
@@ -208,10 +204,3 @@ namespace ud::tools::log {
         initial_logger();                         \
     }
 
-//#define LOG_DEBUG(...)                            \
-//    if (ud::tools::log::is_init) {                \
-//        auto logger = spdlog::get(LOGGER_NAME);   \
-//        SPDLOG_LOGGER_DEBUG(logger, __VA_ARGS__); \
-//    } else {                                      \
-//        initial_logger();                         \
-//    }

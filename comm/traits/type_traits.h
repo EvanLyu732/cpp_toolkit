@@ -13,13 +13,13 @@
 
 namespace toolkits::traits {
 #ifdef @FOUND_BOOST @
-    template<typename T>
-    decltype(auto) getType(T t) {
-        return ::boost::core::demangle(typeid(t).name());
-    }
+template <typename T>
+decltype(auto) getType(T t) {
+  return ::boost::core::demangle(typeid(t).name());
+}
 #endif
 
-}// namespace traits
-}// namespace toolkits
+}  // namespace toolkits::traits
+}  // namespace toolkits
 
-#endif// CPP_TOOLKITS_TYPE_TRAITS_H
+#endif  // CPP_TOOLKITS_TYPE_TRAITS_H
