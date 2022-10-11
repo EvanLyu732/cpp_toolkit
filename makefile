@@ -4,6 +4,9 @@ build: format
 format:
 	find ./comm -name "*.h" -o -name "*.hpp" -o -name "*.cpp" | xargs clang-format -i -style=Google
 
+ci: format build
+   $(info ======== TRIGGER_CI ========)
+
 test:
 	#TODO
 
