@@ -6,7 +6,7 @@ set -x
 WORKSPACE_DIRS=$(dirname `pwd`)
 
 function trigger_ci() {
-  pushd WORKSPACE_DIRS > /dev/null
+  pushd $WORKSPACE_DIRS > /dev/null
      make ci
   popd
 }
