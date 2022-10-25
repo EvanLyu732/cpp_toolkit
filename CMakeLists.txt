@@ -5,6 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(PROJECT_VERSION unreleased)
 
 ###########################
+# Static check for format #
+###########################
+
+
+###########################
 #  General include        #
 ###########################
 include(${CMAKE_SOURCE_DIR}/cmake/all.cmake)
@@ -12,7 +17,8 @@ include(${CMAKE_SOURCE_DIR}/cmake/all.cmake)
 ###########################
 #  Generate Documentation #
 ###########################
-#enableDoxygen()
+include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/enableDoxygen.cmake)
+enableDoxygen(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/doc)
 
 
 #include(${PROJECT_SOURCE_DIR}/comm/traits)
@@ -25,6 +31,7 @@ log(Install begin)
 log(==================================)
 installPackage()
 include(${PROJECT_SOURCE_DIR}/comm/log/cmake/logModule.cmake)
+include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/docModule.cmake)
 
 
 

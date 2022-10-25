@@ -10,4 +10,4 @@ namespace ud::tools::times {
         return duration_cast<milliseconds>(system_clock::now().time_since_epoch())
                 .count();
     }
-}
+}// namespace ud::tools::times

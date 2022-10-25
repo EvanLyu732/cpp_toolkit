@@ -39,9 +39,18 @@
 #include <thread>
 #include <utility>
 
-#define LOG_MODULE "@LOG_MODULE@"
-#define LOG_FILES_DIRS "logs/@LOG_MODULE@.log"
-#define LOGGER_NAME "@LOG_MODULE@/_logger"
+#if __cplusplus >= 201703L
+#include <filesystem>
+#else
+#error "cxx version is not supported std 17!!! Please use higher version cxx compiler"
+#endif
+
+#include "cpptoml.h"
+
+//[deprecated]
+//#define LOG_MODULE "@LOG_MODULE@"
+//#define LOG_FILES_DIRS "logs/@LOG_MODULE@.log"
+//#define LOGGER_NAME "@LOG_MODULE@/_logger"
 
 namespace ud::tools::log {
     inline static bool is_init{false};
@@ -76,6 +85,23 @@ namespace ud::tools::log {
 
         // logger backtrace nums
         static int inline backtrace_nums = 32;
+    };
+
+    struct Config {
+        // toml file network sinker bind port
+        static inline int bind_port;
+
+        // toml file network sinker send port
+        static inline int send_port;
+
+        // toml file network sinker log module name
+        static inline std::string log_module;
+
+        // toml file network sinker log module name
+        static inline std::string log_files_dirs;
+
+        // toml file network sinker logger name
+        static inline std::string logger_name;
     };
 
 
@@ -162,15 +188,31 @@ namespace ud::tools::log {
         ::boost::asio::ip::udp::endpoint send_ep_;
     };
 
-    void initial_logger() {
+
+    void setup_config() {
+        auto current_path = std::filesystem::current_path().parent_path();
+        auto config_path = current_path.string() + "/.spdlog.toml";
+        auto config = ::cpptoml::parse_file(config_path);
+
+        Config::bind_port = config->get_qualified_as<int>("spdlog.BIND_PORT").value_or(6688);
+        Config::send_port = config->get_qualified_as<int>("spdlog.SEND_PORT").value_or(7799);
+
+        Config::log_module = config->get_qualified_as<std::string>("spdlog.LOG_MODULE").value_or("undefined");
+        std::cout << " 1.. Config log_module: " << std::string(Config::log_module) << std::endl;
+
+        Config::log_files_dirs = std::string(current_path.string() + "/logs/" + std::string(Config::log_module) + ".log");
+        Config::logger_name = std::string(std::string(Config::log_module) + "/_logger");
+    }
+
+    void initial_logger() noexcept {
         if (!is_init) {
+            setup_config();
             spdlog::init_thread_pool(Attributes::thread_pool_size, Attributes::thread_pool_nums);
             using networksink_mt = networksink<std::mutex>;
-
-            auto network_sinks = std::make_shared<networksink_mt>(@BIND_PORT @, @SEND_PORT @);
-            auto rotating_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(LOG_FILES_DIRS, 1024 * 1024 * 10, 3);
+            auto network_sinks = std::make_shared<networksink_mt>(Config::bind_port, Config::send_port);
+            auto rotating_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(std::string(Config::log_files_dirs), 1024 * 1024 * 10, 3);
             std::vector<spdlog::sink_ptr> sinks{network_sinks, rotating_sink};
-            auto logger = std::make_shared<spdlog::async_logger>(LOGGER_NAME, sinks.begin(), sinks.end(), spdlog::thread_pool(), spdlog::async_overflow_policy::block);
+            auto logger = std::make_shared<spdlog::async_logger>(std::string(Config::logger_name), sinks.begin(), sinks.end(), spdlog::thread_pool(), spdlog::async_overflow_policy::block);
             spdlog::register_logger(logger);
             is_init = true;
         }
@@ -179,28 +221,24 @@ namespace ud::tools::log {
 }// namespace ud::tools::log
 
 
-#define LOG_INFO(...)                            \
-    if (ud::tools::log::is_init) {               \
-        auto logger = spdlog::get(LOGGER_NAME);  \
-        SPDLOG_LOGGER_INFO(logger, __VA_ARGS__); \
-    } else {                                     \
-        initial_logger();                        \
-    }
+#define LOG_INFO(...)                                                            \
+    if (!ud::tools::log::is_init) {                                              \
+        ud::tools::log::initial_logger();                                        \
+    }                                                                            \
+    auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
+    SPDLOG_LOGGER_INFO(logger, __VA_ARGS__);
 
-#define LOG_WARN(...)                            \
-    if (ud::tools::log::is_init) {               \
-        auto logger = spdlog::get(LOGGER_NAME);  \
-        SPDLOG_LOGGER_WARN(logger, __VA_ARGS__); \
-    } else {                                     \
-        initial_logger();                        \
-    }
+#define LOG_WARN(...)                                                            \
+    if (!ud::tools::log::is_init) {                                              \
+        ud::tools::log::initial_logger();                                        \
+    }                                                                            \
+    auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
+    SPDLOG_LOGGER_WARN(logger, __VA_ARGS__);
 
 
-#define LOG_ERR(...)                              \
-    if (ud::tools::log::is_init) {                \
-        auto logger = spdlog::get(LOGGER_NAME);   \
-        SPDLOG_LOGGER_ERROR(logger, __VA_ARGS__); \
-    } else {                                      \
-        initial_logger();                         \
-    }
-
+#define LOG_ERR(...)                                                             \
+    if (!ud::tools::log::is_init) {                                              \
+        ud::tools::log::initial_logger();                                        \
+    }                                                                            \
+    auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
+    SPDLOG_LOGGER_ERROR(logger, __VA_ARGS__);

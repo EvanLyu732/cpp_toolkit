@@ -19,12 +19,11 @@ macro(installPackage)
             COMPATIBILITY SameMajorVersion
     )
 
+    set(PACKAGE_CONFIG_CMAKE  ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfigVersion.cmake)
+    set(PACKAGE_CONFIG_VERSION_CMAKE ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfig.cmake)
+
     ############# Install Packge ##################################
-    install(FILES ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfigVersion.cmake
+    install(FILES ${PACKAGE_CONFIG_CMAKE} ${PACKAGE_CONFIG_VERSION_CMAKE}
             DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/cpp_toolkits"
     )
-    ############# Install Packge ##################################
-    install(FILES ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfig.cmake
-            DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/cpp_toolkits"
-            )
 endmacro()

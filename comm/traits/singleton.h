@@ -2,21 +2,21 @@
 
 namespace toolkits::traits {
 
-// Define singleton traits for this class; Using CRTF for trigger this triats.
-template <class T>
-class Singleton {
- protected:
-  Singleton() = default;
+    // Define singleton traits for this class; Using CRTF for trigger this triats.
+    template<class T>
+    class Singleton {
+    protected:
+        Singleton() = default;
 
- public:
-  Singleton(const Singleton&) = delete;
-  Singleton(const Singleton&&) = delete;
-  Singleton& operator=(const Singleton&) = delete;
+    public:
+        Singleton(const Singleton&) = delete;
+        Singleton(const Singleton&&) = delete;
+        Singleton& operator=(const Singleton&) = delete;
 
-  static T& instance() {
-    static T self;
-    return self;
-  }
-};
+        static T& instance() {
+            static T self;
+            return self;
+        }
+    };
 
-}  // namespace toolkits::traits
+}// namespace toolkits::traits
