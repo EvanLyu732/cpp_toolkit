@@ -193,13 +193,9 @@ namespace ud::tools::log {
         auto current_path = std::filesystem::current_path().parent_path();
         auto config_path = current_path.string() + "/.spdlog.toml";
         auto config = ::cpptoml::parse_file(config_path);
-
         Config::bind_port = config->get_qualified_as<int>("spdlog.BIND_PORT").value_or(6688);
         Config::send_port = config->get_qualified_as<int>("spdlog.SEND_PORT").value_or(7799);
-
         Config::log_module = config->get_qualified_as<std::string>("spdlog.LOG_MODULE").value_or("undefined");
-        std::cout << " 1.. Config log_module: " << std::string(Config::log_module) << std::endl;
-
         Config::log_files_dirs = std::string(current_path.string() + "/logs/" + std::string(Config::log_module) + ".log");
         Config::logger_name = std::string(std::string(Config::log_module) + "/_logger");
     }

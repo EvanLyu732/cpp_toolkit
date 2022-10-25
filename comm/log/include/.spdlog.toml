@@ -7,7 +7,7 @@ BIND_PORT = 8888
 SEND_PORT = 9999
 
 #######################
-# below is a demo toml
+# Below is a demo toml
 #######################
 #[spdlog]
 ## module name, this attribute custom log files save location
