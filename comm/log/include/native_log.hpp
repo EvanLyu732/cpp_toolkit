@@ -7,11 +7,12 @@
 #include <iostream>
 #include <utility>
 
-namespace toolkits::log {
+namespace ud::toolkits::log {
 
 template <typename... T>
 void print(T &&... args) {
   (std::cout << ... << std::forward<T>(args));
+  (std::cout << std::endl);
 }
 
 }  // namespace toolkits::log

@@ -1,0 +1,7 @@
+macro(log)
+    string(ASCII 27 Esc)
+    set(Green "${Esc}[32m")
+    set(Reset "${Esc}[m")
+    string(REPLACE ";" " " CONTENT "${ARGV}")
+    message(STATUS "${Green}${CONTENT}${Reset}")
+endmacro()

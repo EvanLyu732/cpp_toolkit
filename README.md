@@ -1,4 +1,2 @@
-# CPP_TOOLKITS
+# all in one cpp toolkits.
 
-TODO:
- - [] make it a cmake module, and sub folder as component

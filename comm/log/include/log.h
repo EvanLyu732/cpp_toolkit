@@ -6,6 +6,6 @@
 #define CPP_TOOLKITS_LOG_H
 
 #include "native_log.hpp"
-#include "spdlog.hpp"
+#include "spdlog.hpp.in"
 
 #endif  // CPP_TOOLKITS_LOG_H

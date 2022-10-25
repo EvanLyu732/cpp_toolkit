@@ -2,4 +2,6 @@
 /.idea
 /.vscode
 /build
+/cmake/cpp_toolkitsConfig.cmake
+/cmake/cpp_toolkitsConfigVersion.cmake
 
