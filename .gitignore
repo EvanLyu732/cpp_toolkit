@@ -2,7 +2,8 @@
 /.idea
 /.vscode
 /build
-/doc
+/doc/*
+!Doc.md
 /cmake/cpp_toolkitsConfig.cmake
 /cmake/cpp_toolkitsConfigVersion.cmake
 Doxyfile
