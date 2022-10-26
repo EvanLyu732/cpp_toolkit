@@ -1,13 +1,13 @@
 <div align="center">
   <p>
-    <img src="img/rocket.gif" style="width: 100%" />
+    <img style="width: 100%" src="img/rocket.gif"/>
   </p>
   <h1><strong> &#127775 Cpp_Toolkits &#127775 </strong></h1>
   <p>
     <strong> &#128293; All in one cpp toolkits. &#128293;</strong>
   </p>
   <p>
-    <img src="img/meme.jpeg" alt="build status" />
+    <img style="width: 60% "src="img/meme.jpeg" alt="build status" />
   </p>
 </div>
 
