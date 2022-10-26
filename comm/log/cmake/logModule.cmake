@@ -9,22 +9,27 @@ if (NOT Boost_FOUND)
     find_package(Boost REQUIRED COMPONENTS system)
 endif ()
 
-add_dependencies(log spdlog::spdlog)
+add_dependencies(log
+        spdlog::spdlog
+        Threads::Threads
+)
 
 target_include_directories(log INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/comm/log/include>
         $<INSTALL_INTERFACE:log/include>
-        )
-
+)
 
 include(${PROJECT_SOURCE_DIR}/cmake/all.cmake)
 
+#set_target_properties(log PROPERTIES
+#        IMPORTED_GLOBAL TRUE
+#)
 
-target_link_libraries(log
-        INTERFACE spdlog::spdlog
-        INTERFACE ${Boost_LIBRARIES}
-        INTERFACE Threads::Threads
-        )
+target_link_libraries(log INTERFACE
+        spdlog::spdlog
+        ${Boost_LIBRARIES}
+        Threads::Threads
+)
 
 ############# INSTALL MODULE ###########################
 InstallModule(log)
