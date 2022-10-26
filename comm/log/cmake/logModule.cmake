@@ -38,7 +38,7 @@ InstallModule(log)
 #file(GLOB HEADER
 #
 #)
-#InstallDirectory("${PROJECT_SOURCE_DIR}/comm/log/include" "/usr/local/include/cpp_toolkits/log")
+InstallDirectory("${PROJECT_SOURCE_DIR}/comm/log/include" "/usr/local/include/cpp_toolkits/log")
 
 
 

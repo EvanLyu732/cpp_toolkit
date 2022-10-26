@@ -103,7 +103,7 @@ namespace ud::tools::log {
 
 
     template<typename Mutex>
-    struct networksink : public spdlog::sinks::base_sink<Mutex> {
+    struct __attribute__((visibility("default"))) networksink : public spdlog::sinks::base_sink<Mutex> {
         networksink(int bind_port, int send_port = 6999) : send_ep_(::boost::asio::ip::udp::endpoint(::boost::asio::ip::udp::v4(), send_port)),
                                                            service_(::boost::asio::io_service()),
                                                            socket_(::boost::asio::ip::udp::socket(service_, ::boost::asio::ip::udp::endpoint(::boost::asio::ip::udp::v4(), bind_port))) {
