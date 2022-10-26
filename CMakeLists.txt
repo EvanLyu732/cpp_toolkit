@@ -4,6 +4,7 @@ project(cpp_toolkits)
 set(CMAKE_CXX_STANDARD 17)
 set(PROJECT_VERSION unreleased)
 
+
 ###########################
 # Static check for format #
 ###########################
@@ -12,7 +13,8 @@ set(PROJECT_VERSION unreleased)
 ###########################
 #  General include        #
 ###########################
-include(${CMAKE_SOURCE_DIR}/cmake/all.cmake)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+include(all)
 
 ###########################
 #  Generate Documentation #
@@ -30,6 +32,7 @@ log(==================================)
 log(Install begin)
 log(==================================)
 installPackage()
+
 include(${PROJECT_SOURCE_DIR}/comm/log/cmake/logModule.cmake)
 include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/docModule.cmake)
 
