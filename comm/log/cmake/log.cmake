@@ -3,7 +3,7 @@
 #    BIND_PORT: network sinker register port
 #    SEND_PORT: network sinker publish port
 
-macro(log_setup TARGET)
+macro(find_log_deps)
     if (NOT Threads_FOUND)
         find_package(Threads REQUIRED)
     endif ()
@@ -13,6 +13,11 @@ macro(log_setup TARGET)
     if (NOT Boost_FOUND)
         find_package(Boost REQUIRED COMPONENTS system)
     endif ()
+endmacro()
+
+
+macro(log_setup TARGET)
+    find_log_deps()
     target_link_libraries(TARGET ${TARGET} PRIVATE
             Threads::Threads
             spdlog::spdlog
@@ -20,20 +25,9 @@ macro(log_setup TARGET)
     )
 endmacro()
 
-#macro(InstallDep)
-#
-#endmacro()
-
 
 macro(enable_logging LOG_MODULE BIND_PORT SEND_PORT)
-    if (NOT spdlog_FOUND)
-        find_package(spdlog REQUIRED)
-    endif ()
-
-    if (NOT Boost_FOUND)
-        find_package(Boost REQUIRED COMPONENTS system)
-    endif ()
-
+    find_log_deps()
     set(LOG_MODULE LOG_MODULE)
     set(BIND_PORT BIND_PORT)
     set(SEND_PORT SEND_PORT)
