@@ -1,6 +1,6 @@
 <div align="center">
   <p>
-    <img src="img/rocket.gif" />
+    <img src="img/rocket.gif" style="width: 100%" />
   </p>
   <h1><strong> &#127775 Cpp_Toolkits &#127775 </strong></h1>
   <p>
