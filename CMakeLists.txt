@@ -2,13 +2,16 @@ cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 project(cpp_toolkits)
 
 set(CMAKE_CXX_STANDARD 17)
-set(PROJECT_VERSION unreleased)
+set(CMAKE_CXX_STANDARD_REQUIRED  ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
+set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
+set(PROJECT_VERSION unreleased)
 
 ###########################
 # Static check for format #
 ###########################
-
 
 ###########################
 #  General include        #
