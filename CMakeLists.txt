@@ -34,13 +34,15 @@ set_property(GLOBAL PROPERTY
         CXX_CLANG_TIDY ${CLANG_TIDY_CMD}
 )
 
-
 ###########################
 #  Generate Documentation #
 ###########################
 include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/enableDoxygen.cmake)
 enableDoxygen(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/doc)
 
+###########################
+#   Testing    begin      #
+###########################
 
 #include(${PROJECT_SOURCE_DIR}/comm/traits)
 

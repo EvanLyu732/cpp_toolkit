@@ -19,7 +19,7 @@ macro(installPackage)
             COMPATIBILITY SameMajorVersion
     )
 
-    set(PACKAGE_CONFIG_CMAKE  ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfigVersion.cmake)
+    set(PACKAGE_CONFIG_CMAKE ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfigVersion.cmake)
     set(PACKAGE_CONFIG_VERSION_CMAKE ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkitsConfig.cmake)
 
     ############# Install Packge ##################################

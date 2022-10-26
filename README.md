@@ -22,3 +22,4 @@
 ### TODO
 - [ ] Traits Module
 - [ ] Static Check
+- [ ] Valgrind

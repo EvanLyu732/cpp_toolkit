@@ -2,6 +2,8 @@ project(log)
 add_library(log INTERFACE)
 add_library(cpp-toolkits::log ALIAS log)
 
+include(all)
+
 findPackage(spdlog)
 findPackage(Threads)
 
@@ -16,10 +18,10 @@ add_dependencies(log
 
 target_include_directories(log INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/comm/log/include>
-        $<INSTALL_INTERFACE:log/include>
+        $<INSTALL_INTERFACE:log>
 )
 
-include(${PROJECT_SOURCE_DIR}/cmake/all.cmake)
+include(all)
 
 #set_target_properties(log PROPERTIES
 #        IMPORTED_GLOBAL TRUE
@@ -36,7 +38,7 @@ InstallModule(log)
 #file(GLOB HEADER
 #
 #)
-InstallDirectory("${PROJECT_SOURCE_DIR}/comm/log/include" "/usr/local/include/cpp_toolkits/log")
+#InstallDirectory("${PROJECT_SOURCE_DIR}/comm/log/include" "/usr/local/include/cpp_toolkits/log")
 
 
 
