@@ -22,7 +22,7 @@ macro(log_setup TARGET)
             Threads::Threads
             spdlog::spdlog
             ${Boost_LIBRARIES}
-    )
+            )
 endmacro()
 
 

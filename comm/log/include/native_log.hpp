@@ -21,4 +21,4 @@ namespace ud::tools::log {
         (std::cout << std::endl);
     }
 
-}// namespace ud::toolkits::log
+}// namespace ud::tools::log

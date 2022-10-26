@@ -216,29 +216,32 @@ namespace ud::tools::log {
 /**
  * @brief LOG_INFO: logging message in info level
  */
-#define LOG_INFO(...)                                                            \
-    if (!ud::tools::log::is_init) {                                              \
-        ud::tools::log::initial_logger();                                        \
-    }                                                                            \
-    auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
-    SPDLOG_LOGGER_INFO(logger, __VA_ARGS__);
+#define LOG_INFO(...)                                                                \
+    if (!ud::tools::log::is_init) {                                                  \
+        ud::tools::log::initial_logger();                                            \
+    } else {                                                                         \
+        auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
+        SPDLOG_LOGGER_INFO(logger, __VA_ARGS__);                                     \
+    }
 
 /**
  * @brief LOG_WARN: logging message in warn level
  */
-#define LOG_WARN(...)                                                            \
-    if (!ud::tools::log::is_init) {                                              \
-        ud::tools::log::initial_logger();                                        \
-    }                                                                            \
-    auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
-    SPDLOG_LOGGER_WARN(logger, __VA_ARGS__);
+#define LOG_WARN(...)                                                                \
+    if (!ud::tools::log::is_init) {                                                  \
+        ud::tools::log::initial_logger();                                            \
+    } else {                                                                         \
+        auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
+        SPDLOG_LOGGER_WARN(logger, __VA_ARGS__);                                     \
+    }
 
 /**
  * @brief LOG_ERR: logging message in error level
  */
-#define LOG_ERR(...)                                                             \
-    if (!ud::tools::log::is_init) {                                              \
-        ud::tools::log::initial_logger();                                        \
-    }                                                                            \
-    auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
-    SPDLOG_LOGGER_ERROR(logger, __VA_ARGS__);
+#define LOG_ERR(...)                                                                 \
+    if (!ud::tools::log::is_init) {                                                  \
+        ud::tools::log::initial_logger();                                            \
+    } else {                                                                         \
+        auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
+        SPDLOG_LOGGER_ERROR(logger, __VA_ARGS__);                                    \
+    }\
