@@ -11,7 +11,7 @@
 
 #include <string>
 
-namespace ud::toolkits::traits {
+namespace ud::tools::traits {
 #ifdef @FOUND_BOOST @
     template<typename T>
     decltype(auto) getType(T t) {

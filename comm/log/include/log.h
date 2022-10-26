@@ -1,6 +1,6 @@
-//
-// Created by ubuntu on 22-9-8.
-//
+/**
+ * @author EvanLyu732
+ */
 
 #ifndef CPP_TOOLKITS_LOG_H
 #define CPP_TOOLKITS_LOG_H

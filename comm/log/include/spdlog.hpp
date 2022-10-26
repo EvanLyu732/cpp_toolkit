@@ -1,12 +1,9 @@
-#pragma once
-
 /**
- * Goal is to provided easy to use wrapping api, for user.
- *
- * Mode1: color sinker, auto rotate file location
- * Mode2: web sinker injection
- * Mode3: stacktrace mode
- **/
+ * @author EvanLyu732
+ * @brief This file provided macro using customized spdlog sinker.
+ */
+
+#pragma once
 
 #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
 
@@ -216,7 +213,9 @@ namespace ud::tools::log {
 
 }// namespace ud::tools::log
 
-
+/**
+ * @brief LOG_INFO: logging message in info level
+ */
 #define LOG_INFO(...)                                                            \
     if (!ud::tools::log::is_init) {                                              \
         ud::tools::log::initial_logger();                                        \
@@ -224,6 +223,9 @@ namespace ud::tools::log {
     auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
     SPDLOG_LOGGER_INFO(logger, __VA_ARGS__);
 
+/**
+ * @brief LOG_WARN: logging message in warn level
+ */
 #define LOG_WARN(...)                                                            \
     if (!ud::tools::log::is_init) {                                              \
         ud::tools::log::initial_logger();                                        \
@@ -231,7 +233,9 @@ namespace ud::tools::log {
     auto logger = spdlog::get(std::string(ud::tools::log::Config::logger_name)); \
     SPDLOG_LOGGER_WARN(logger, __VA_ARGS__);
 
-
+/**
+ * @brief LOG_ERR: logging message in error level
+ */
 #define LOG_ERR(...)                                                             \
     if (!ud::tools::log::is_init) {                                              \
         ud::tools::log::initial_logger();                                        \

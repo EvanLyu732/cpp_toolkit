@@ -1,6 +1,6 @@
 #pragma once
 
-namespace toolkits::traits {
+namespace ud::tools::traits {
 
     // Define singleton traits for this class; Using CRTF for trigger this triats.
     template<class T>
