@@ -1,5 +1,11 @@
 project(log)
-add_library(log INTERFACE)
+add_library(log INTERFACE
+        ${PROJECT_SOURCE_DIR}/comm/log/include/log.h
+        ${PROJECT_SOURCE_DIR}/comm/log/include/native_log.hpp
+        ${PROJECT_SOURCE_DIR}/comm/log/include/spdlog.hpp
+        ${PROJECT_SOURCE_DIR}/comm/log/include/.spdlog.toml
+)
+
 add_library(cpp-toolkits::log ALIAS log)
 
 include(all)
@@ -29,16 +35,17 @@ include(all)
 
 target_link_libraries(log INTERFACE
         spdlog::spdlog
-        ${Boost_LIBRARIES}
+        Boost::boost
         Threads::Threads
 )
 
 ############# INSTALL MODULE ###########################
 InstallModule(log)
+
 #file(GLOB HEADER
 #
 #)
-InstallDirectory("${PROJECT_SOURCE_DIR}/comm/log/include" "/usr/local/include/cpp_toolkits/log")
+#InstallDirectory("${PROJECT_SOURCE_DIR}/comm/log/include" "/usr/local/include/cpp_toolkits/log")
 
 
 

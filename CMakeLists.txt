@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 project(cpp_toolkits)
 
 ###########################
@@ -29,7 +29,7 @@ log(=========================================)
 ###########################
 # Static check for format #
 ###########################
-find_program(CLANG_TIDY_EXECUTABLE NAMES ".clang-tidy" REQUIRED)
+find_program(CLANG_TIDY_EXECUTABLE NAMES "clang-tidy" REQUIRED)
 set(CMAKE_CXX_CLANG_TIDY "clang-tidy")
 set(CLANG_TIDY_CMD "${CMAKE_CXX_CLANG_TIDY}" "-check=-*,modernize-*")
 
