@@ -2,6 +2,7 @@ macro(installPackage)
     include(GNUInstallDirs)
     include(GenerateExportHeader)
     include(CMakePackageConfigHelpers)
+
     log(==============================================)
     log(Ready to install package: cpp_toolkits        )
     log(==============================================)

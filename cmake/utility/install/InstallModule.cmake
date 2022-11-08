@@ -1,5 +1,6 @@
 macro(InstallModule MODULE)
     include(GNUInstallDirs)
+    include(CMakePackageConfigHelpers)
 
     log(==============================================)
     log(Ready to install module: ${MODULE}            )
@@ -24,4 +25,24 @@ macro(InstallModule MODULE)
             NAMESPACE cpp-toolkits::
             DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/cpp_toolkits"
     )
+
+    configure_file("${PROJECT_SOURCE_DIR}/comm/${MODULE}/cmake/${MODULE}-config.cmake.in"
+            "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config.cmake"
+            @ONLY
+    )
+
+    write_basic_package_version_file(
+            "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config-version.cmake"
+            VERSION ${VERSION}
+            COMPATIBILITY AnyNewerVersion
+    )
+
+    install(
+        FILES
+          "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config.cmake"
+          "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config-version.cmake"
+        DESTINATION /usr/lib/cmake/${PROJECT_NAME}
+        COMPONENT ${MODULE}
+    )
+
 endmacro()

@@ -9,4 +9,4 @@ target_include_directories(doc INTERFACE
 
 ############# INSTALL MODULE ###########################
 include(${PROJECT_SOURCE_DIR}/cmake/all.cmake)
-InstallModule(doc)
+#InstallModule(doc)
