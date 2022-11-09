@@ -10,14 +10,15 @@ macro(installPackage)
     configure_package_config_file(
             "${PROJECT_SOURCE_DIR}/cmake/Config.cmake.in"
             "${PROJECT_SOURCE_DIR}/cmake/cpp_toolkits-config.cmake"
-            INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cpp_toolkits
+            INSTALL_DESTINATION /usr/local/lib/cmake/cpp_toolkits
             PATH_VARS
                 CMAKE_INSTALL_LIBDIR
     )
 
     write_basic_package_version_file(
             ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkits-config-version.cmake
-            COMPATIBILITY SameMajorVersion
+            VERSION ${VERSION}
+            COMPATIBILITY AnyNewerVersion
     )
 
     set(PACKAGE_CONFIG_CMAKE ${PROJECT_SOURCE_DIR}/cmake/cpp_toolkits-config-version.cmake)
@@ -25,6 +26,6 @@ macro(installPackage)
 
     ############# Install Packge ##################################
     install(FILES ${PACKAGE_CONFIG_CMAKE} ${PACKAGE_CONFIG_VERSION_CMAKE}
-            DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/cpp_toolkits"
+            DESTINATION /usr/local/lib/cmake/cpp_toolkits
     )
 endmacro()

@@ -24,7 +24,7 @@ add_dependencies(log
 
 target_include_directories(log INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/comm/log/include>
-        $<INSTALL_INTERFACE:log>
+        $<INSTALL_INTERFACE:cpp_toolkits/log>
 )
 
 include(all)

@@ -56,10 +56,11 @@ enableDoxygen(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/doc)
 log(==================================)
 log(Install begin)
 log(==================================)
-installPackage()
 
 include(${PROJECT_SOURCE_DIR}/comm/log/cmake/logModule.cmake)
 include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/docModule.cmake)
 
+
+installPackage()
 
 

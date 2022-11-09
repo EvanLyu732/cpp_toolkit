@@ -23,8 +23,8 @@ macro(InstallModule MODULE)
     )
 
     install(EXPORT ${MODULE}-targets
-            FILE ${MODULE}-target.cmake
-            NAMESPACE cpp-toolkits::
+            FILE ${PROJECT_NAME}-${MODULE}-targets.cmake
+            NAMESPACE ${PROJECT_NAME}::
             DESTINATION /usr/local/lib/cmake/${PROJECT_NAME}
     )
 

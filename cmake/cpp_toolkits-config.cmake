@@ -1,6 +1,10 @@
-foreach(component ${CPP_TOOLKITS_FIND_COMPONENTS})
-    include(${CMAKE_CURRENT_LIST_DIR}/cpp_toolkits-${components}-config.cmake)
-endforeach()
+#list(APPEND cpp_toolkits_FIND_COMPONENTS log)
+#
+#foreach(component ${cpp_toolkits_FIND_COMPONENTS})
+    #include(${CMAKE_CURRENT_LIST_DIR}/cpp_toolkits-${components}-config.cmake)
+#endforeach()
+
+include(${CMAKE_CURRENT_LIST_DIR}/cpp_toolkits-log-config.cmake)
 
 
 ####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######
