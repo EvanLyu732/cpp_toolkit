@@ -20,7 +20,7 @@ add_compile_options(-fvisibility=hidden)
 add_compile_options(-fvisibility-inline-hidden)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
-set(CMAKE_GENERATOR "Unix Makefiles" CACHE INTERNAL "" FORCE)
+set(CMAKE_GENERATOR "Ninja" CACHE INTERNAL "" FORCE)
 set(PROJECT_VERSION unreleased)
 
 log(=========================================)
@@ -60,8 +60,8 @@ log(==================================)
 include(${PROJECT_SOURCE_DIR}/comm/log/cmake/logModule.cmake)
 include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/docModule.cmake)
 
-
 installPackage()
+
 
 ###############################
 #   Create cmake package      #

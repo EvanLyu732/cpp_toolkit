@@ -1,5 +1,5 @@
 build: format
-	rm -rf ./build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -S. -Bbuild && cd build && make
+	rm -rf ./build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -S. -Bbuild && cd build && ninja
 
 format:
 	find ./comm -name "*.h" -o -name "*.hpp" -o -name "*.cpp" | xargs clang-format -i -style=Google
