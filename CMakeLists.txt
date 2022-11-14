@@ -6,6 +6,7 @@ set(VERSION 0.0.1)
 #  General include        #
 ###########################
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+set(CPACK_ADD_TARGETS "")
 include(all)
 
 ###############################

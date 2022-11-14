@@ -26,3 +26,8 @@ set(CPACK_COMPONENTS_GROUPING ALL_COMPONENTS_IN_ONE)
 set(CPACK_DEB_COMPONENT_INSTALL YES)
 
 include(CPack)
+
+# adds all component
+foreach(TARGET ${CPACK_ADD_TARGETS})
+    cpack_add_components(${TARGET})
+endforeach()

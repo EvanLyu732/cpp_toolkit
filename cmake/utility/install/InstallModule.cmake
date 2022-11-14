@@ -47,4 +47,5 @@ macro(InstallModule MODULE)
         COMPONENT ${MODULE}
     )
 
+    list(APPEND CPACK_ADD_TARGETS ${Module})
 endmacro()
