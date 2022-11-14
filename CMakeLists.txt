@@ -63,4 +63,10 @@ include(${PROJECT_SOURCE_DIR}/comm/doc/cmake/docModule.cmake)
 
 installPackage()
 
+###############################
+#   Create cmake package      #
+###############################
+include(createPackage)
+
+
 

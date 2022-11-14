@@ -10,4 +10,7 @@ ci: format build
 test:
 	#TODO
 
+package:
+	cd build && cpack -G DEB
+
 .PHONY: format build test
