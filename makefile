@@ -1,4 +1,5 @@
 build: format
+	# check if depend libraries existed.
 	rm -rf ./build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -S. -Bbuild && cd build && ninja
 
 format:

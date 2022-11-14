@@ -12,9 +12,19 @@
 </div>
 
 # Table of contents
+- [Install Guide](#install-guide)
 - [Design Draft](#design-draft)
 - [Features](#features)
     
+## Install Guide
+**OS REQUIRED**: Debian
+
+```bash
+$ make # build the project
+$ make package # build debian package
+$ make install # install directories and cmake 
+```
+
 
 ## Design Draft
 
