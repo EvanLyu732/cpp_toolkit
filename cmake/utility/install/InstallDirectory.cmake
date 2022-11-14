@@ -3,5 +3,5 @@ macro(InstallDirectory Module Dir Destination)
             DESTINATION ${Destination}
             COMPONENT ${Module}-${Dir}
     )
-    list(APPEND CPACK_ADD_TARGETS ${Module}-${Dir})
+    cpack_add_component(${Module}-${Dir})
 endmacro()

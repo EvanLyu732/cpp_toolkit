@@ -3,5 +3,5 @@ macro(InstallFiles Module Files Destination)
             DESTINATION ${Destination}
             COMPONENT ${Module}-${Files}
     )
-    list(APPEND CPACK_ADD_TARGETS ${Module}-${Files})
+    cpack_add_component(${Module}-${Files})
 endmacro()

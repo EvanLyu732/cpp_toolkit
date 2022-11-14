@@ -46,6 +46,5 @@ macro(InstallModule MODULE)
         DESTINATION /usr/local/lib/cmake/cpp_toolkits
         COMPONENT ${MODULE}
     )
-
-    list(APPEND CPACK_ADD_TARGETS ${Module})
+    cpack_add_component(${MODULE})
 endmacro()
