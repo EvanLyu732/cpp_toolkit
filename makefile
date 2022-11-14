@@ -11,6 +11,6 @@ test:
 	#TODO
 
 package:
-	cd build && cpack -G DEB
+	cd build && cpack
 
 .PHONY: format build test
