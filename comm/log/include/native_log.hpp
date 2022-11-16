@@ -11,15 +11,15 @@
 
 namespace ud::tools::log {
 
-/**
+    /**
  * Varidic template based cout function template
  * @tparam T basic type
  * @param args arguments for output
  */
-template <typename... T>
-void print(T &&... args) {
-  (std::cout << ... << std::forward<T>(args));
-  (std::cout << std::endl);
-}
+    template<typename... T>
+    void print(T &&...args) {
+        (std::cout << ... << std::forward<T>(args));
+        (std::cout << std::endl);
+    }
 
-}  // namespace ud::tools::log
+}// namespace ud::tools::log
