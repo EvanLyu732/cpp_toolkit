@@ -3,12 +3,14 @@ macro(installPackage)
     include(GenerateExportHeader)
     include(CMakePackageConfigHelpers)
 
+    set(PROJECT_NAME cpp_toolkits)
+
     log(==============================================)
     log(Ready to install package: cpp_toolkits        )
     log(==============================================)
 
     configure_package_config_file(
-            "${PROJECT_SOURCE_DIR}/cmake/Config.cmake.in"
+            "${PROJECT_SOURCE_DIR}/cmake/Package-Config.cmake.in"
             "${PROJECT_SOURCE_DIR}/cmake/cpp_toolkits-config.cmake"
             INSTALL_DESTINATION /usr/local/lib/cmake/cpp_toolkits
             PATH_VARS
@@ -26,6 +28,14 @@ macro(installPackage)
 
     ############# Install Packge ##################################
     install(FILES ${PACKAGE_CONFIG_CMAKE} ${PACKAGE_CONFIG_VERSION_CMAKE}
-            DESTINATION /usr/local/lib/cmake/cpp_toolkits
+            DESTINATION lib/cmake/${PROJECT_NAME}
+            COMPONENT ${PROJECT_NAME}
     )
+
+
+#    export(
+#            EXPORT "${PROJECT_NAME}-targets"
+#            FILE "${CMAKE_CURRENT_BINARY_DIR}/cmake/${PROJECT_NAME}-targets.cmake"
+#            NAMESPACE ${PROJECT_NAME}::
+#    )
 endmacro()

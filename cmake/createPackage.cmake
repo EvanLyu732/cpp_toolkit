@@ -1,5 +1,5 @@
 set(CPACK_PACKAGE_NAME "cpp-toolkits")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "a cpp toolkits contain common utilitys")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "a cpp toolkits contain common utilities")
 set(CPACK_GENERATOR "DEB")
 
 # TODO: eg. libspdlog and so oe
@@ -31,3 +31,8 @@ set(CPACK_COMPONENTS_GROUPING ALL_COMPONENTS_IN_ONE)
 set(CPACK_DEB_COMPONENT_INSTALL YES)
 
 include(CPack)
+
+log_debug(==========================================)
+# From https://github.com/retifrav/cmake-cpack-example.git
+log_debug(Component to pack: ${CPACK_COMPONENTS_ALL})
+log_debug(==========================================)

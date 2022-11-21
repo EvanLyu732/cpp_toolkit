@@ -1,6 +1,5 @@
 project(log)
 
-
 set(LOG_MODULE_HDRS
         "${PROJECT_SOURCE_DIR}/comm/log/include/log.h"
         "${PROJECT_SOURCE_DIR}/comm/log/include/native_log.hpp"
