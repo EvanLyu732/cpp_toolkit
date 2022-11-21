@@ -8,9 +8,9 @@ macro(InstallModule MODULE)
     log(Ready to install module: ${MODULE}            )
     log(==============================================)
 
-    set(CMAKE_INSTALL_BINDIR /usr/local/bin/${PROJECT_NAME})
-    set(CMAKE_INSTALL_LIBDIR /usr/local/lib/${PROJECT_NAME})
-    set(CMAKE_INSTALL_INCLUDEDIR /usr/local/include/${PROJECT_NAME})
+    set(CMAKE_INSTALL_BINDIR bin/${PROJECT_NAME})
+    set(CMAKE_INSTALL_LIBDIR lib/${PROJECT_NAME})
+    set(CMAKE_INSTALL_INCLUDEDIR include/${PROJECT_NAME})
 
     install(TARGETS ${MODULE}
             EXPORT ${MODULE}-targets
@@ -30,12 +30,12 @@ macro(InstallModule MODULE)
     install(EXPORT ${MODULE}-targets
             FILE ${MODULE}-targets.cmake
             NAMESPACE ${PROJECT_NAME}::
-            DESTINATION /usr/local/lib/cmake/${PROJECT_NAME}
+            DESTINATION lib/cmake/${PROJECT_NAME}
     )
 
     configure_package_config_file("${PROJECT_SOURCE_DIR}/comm/${MODULE}/cmake/${MODULE}-config.cmake.in"
             "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config.cmake"
-            INSTALL_DESTINATION /usr/local/lib/cmake/cpp_toolkits/${MODULE}
+            INSTALL_DESTINATION lib/cmake/cpp_toolkits/${MODULE}
     )
 
 #    configure_file("${PROJECT_SOURCE_DIR}/comm/${MODULE}/cmake/${MODULE}-config.cmake.in"
@@ -53,7 +53,7 @@ macro(InstallModule MODULE)
         FILES
           "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config.cmake"
           "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-${MODULE}-config-version.cmake"
-        DESTINATION /usr/local/lib/cmake/cpp_toolkits
+        DESTINATION lib/cmake/cpp_toolkits
         COMPONENT ${MODULE}
     )
 

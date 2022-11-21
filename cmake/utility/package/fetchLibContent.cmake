@@ -1,5 +1,4 @@
 macro(fetchlibs LIB_NAME URL GIT_TAG)
-    include(FetchContent)
     FetchContent_Declare(
             ${LIB_NAME}
             GIT_REPOSITORY ${URL}

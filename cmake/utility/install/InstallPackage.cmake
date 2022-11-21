@@ -12,7 +12,7 @@ macro(installPackage)
     configure_package_config_file(
             "${PROJECT_SOURCE_DIR}/cmake/Package-Config.cmake.in"
             "${PROJECT_SOURCE_DIR}/cmake/cpp_toolkits-config.cmake"
-            INSTALL_DESTINATION /usr/local/lib/cmake/cpp_toolkits
+            INSTALL_DESTINATION lib/cmake/${PROJECT_NAME}
             PATH_VARS
                 CMAKE_INSTALL_LIBDIR
     )
