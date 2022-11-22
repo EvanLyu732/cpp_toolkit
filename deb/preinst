@@ -1,7 +1,22 @@
 #!/bin/bash
 
+################################################
+# THIS SCRIPT WILL CHECK REQUIRED LIBS         #
+# AND INSTALL REQUIRED 3RD LIBS IF IT IS MISSED#
+################################################
 set -e
 
 echo "preinst"
 
+declare -A MODULE_DEPS_TABLE
+MODULE_DEPS_TABLE["log"]="spdlog boost cpptoml"
+MODULE_DEPS_TABLE["doc"]="doxygen"
+
+echo ${MODULE_DEPS_TABLE[*]}
+
 # check dependencies
+function check_dep {
+  #  $1  dep name
+  #  $2  dep installed destination
+  return
+}
