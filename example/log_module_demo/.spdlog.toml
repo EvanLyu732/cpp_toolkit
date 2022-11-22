@@ -1,6 +1,6 @@
 [spdlog]
 # module name, this attribute custom log files save location
-LOG_MODULE = "test_cpp_toolkits"
+LOG_MODULE = "test_log_module"
 # networker sinker bind port,
 BIND_PORT = 26783
 # networker sinker send port, 6999 by default
