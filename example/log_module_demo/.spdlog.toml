@@ -1,0 +1,18 @@
+[spdlog]
+# module name, this attribute custom log files save location
+LOG_MODULE = "test_cpp_toolkits"
+# networker sinker bind port,
+BIND_PORT = 26783
+# networker sinker send port, 6999 by default
+SEND_PORT = 26785
+
+#######################
+# below is a demo toml
+#######################
+#[spdlog]
+## module name, this attribute custom log files save location
+#LOG_MODULE = test
+## networker sinker bind port,
+#BIND_PORT = 7555
+## networker sinker send port, 6999 by default
+#SEND_PORT = 8999
