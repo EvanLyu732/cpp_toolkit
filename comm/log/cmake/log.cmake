@@ -18,11 +18,11 @@ endmacro()
 
 macro(log_setup TARGET)
     find_log_deps()
-    target_link_libraries(TARGET ${TARGET} PRIVATE
+    target_link_libraries(${TARGET} PRIVATE
             Threads::Threads
             spdlog::spdlog
             ${Boost_LIBRARIES}
-            )
+    )
 endmacro()
 
 

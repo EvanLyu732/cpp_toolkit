@@ -24,11 +24,11 @@ macro(InstallModule MODULE)
     )
 
     log_debug(------------------ Debug Beginning -----------------------------)
-    log_debug( Export targets, file: "${PROJECT_NAME}-${MODULE}-targets.cmake")
-    log_debug(-----------------------------------------------------------------)
+    log_debug( Export targets, file: "${MODULE}-targets.cmake"                )
+    log_debug(----------------------------------------------------------------)
 
     install(EXPORT ${MODULE}-targets
-            FILE ${MODULE}-targets.cmake
+            FILE ${PROJECT_NAME}-${MODULE}-targets.cmake
             NAMESPACE ${PROJECT_NAME}::
             DESTINATION lib/cmake/${PROJECT_NAME}
     )

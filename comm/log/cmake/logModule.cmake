@@ -35,7 +35,7 @@ add_dependencies(log
 
 target_include_directories(log INTERFACE
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/comm/log/include>
-        $<INSTALL_INTERFACE:cpp_toolkits/log>
+        $<INSTALL_INTERFACE:include/cpp_toolkits/log>
         )
 
 include(all)
@@ -52,6 +52,7 @@ target_link_libraries(log INTERFACE
 
 ############# INSTALL MODULE ###########################
 InstallModule(log)
+InstallFiles(log ${PROJECT_SOURCE_DIR}/comm/log/cmake/log.cmake  lib/cmake/cpp_toolkits)
 
 #file(GLOB HEADER
 #

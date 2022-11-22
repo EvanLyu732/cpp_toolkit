@@ -4,7 +4,6 @@
     #include(${CMAKE_CURRENT_LIST_DIR}/cpp_toolkits-${components}-config.cmake)
 #endforeach()
 
-include(${CMAKE_CURRENT_LIST_DIR}/cpp_toolkits-log-config.cmake)
 
 
 ####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######
@@ -31,3 +30,6 @@ macro(check_required_components _NAME)
 endmacro()
 
 ####################################################################################
+
+include(${CMAKE_CURRENT_LIST_DIR}/cpp_toolkits-log-config.cmake)
+

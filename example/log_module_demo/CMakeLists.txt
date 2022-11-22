@@ -10,8 +10,8 @@ set(CMAKE_CXX_COMPILER /usr/bin/g++-11)
 find_package(cpp_toolkits REQUIRED COMPONENTS log)
 
 add_executable(test_log_module
-  main.cpp
-)
+        main.cpp
+        )
 
 # The correct way should be set cmake prefix path, but for demo usage
 # simply include log module cmake.
